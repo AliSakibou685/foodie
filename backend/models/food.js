@@ -13,3 +13,5 @@ const foodSchema = new mongoose.Schema({
   }, {
     timestamps: true
   });
+
+  module.exports = Food;
