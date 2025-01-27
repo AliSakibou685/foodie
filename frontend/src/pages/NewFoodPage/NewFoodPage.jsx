@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import * as foodService from '../../services/foodService';
 
-export default function NewFoodPage() {
+export default function NewFoodPage({categories}) {
   const [content, setContent] = useState('');
 
   const navigate = useNavigate();

@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router';
 import { getUser } from '../../services/authService';
+import * as categoryService from '../../services/categoryService';
 import './App.css';
 import HomePage from '../HomePage/HomePage';
 import FoodListPage from '../FoodListPage/FoodListPage';
@@ -11,7 +12,15 @@ import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    async function fetchCategories() {
+      const categories = await categoryService.index();
+      setCategories(categories);
+    }
+    fetchCategories();
+   
+  }, []);
   return (
     <main className="App">
       <NavBar user={user} setUser={setUser} />
@@ -20,7 +29,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/foods" element={<FoodListPage />} />
-            <Route path="/foods/new" element={<NewFoodPage />} />
+            <Route path="/foods/new" element={<NewFoodPage categories={categories} />} />
           </Routes>
         ) : (
           <Routes>
