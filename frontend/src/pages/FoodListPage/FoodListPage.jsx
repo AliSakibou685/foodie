@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import * as postService from '../../services/postService';
-import './PostListPage.css';
+import './FoodListPage.css';
 import PostItem from '../../components/PostItem/PostItem';
 
-export default function PostListPage() {
+export default function FoodListPage() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    async function fetchPosts() {
+    async function fetchFoods() {
       const posts = await postService.index();
-      setPosts(posts);
+      setFoods(foods);
     }
     fetchPosts();
   }, []);
@@ -18,7 +18,7 @@ export default function PostListPage() {
 
   return (
     <>
-      <h1>Post List</h1>
+      <h1>Food List</h1>
       <section className="post-item-container">{postItems}</section>
     </>
   );
