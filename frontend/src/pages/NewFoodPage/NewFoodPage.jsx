@@ -21,7 +21,7 @@ export default function NewFoodPage() {
     <>
       <h2>New Food</h2>
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <label>Food List</label>
+        <label>Food Content</label>
         <input
           type="text"
           value={content}
@@ -30,6 +30,21 @@ export default function NewFoodPage() {
         />
         <button type="submit">ADD Food</button>
       </form>
+
+      <h3>Category</h3>
+      <form autoComplete="off" onSubmit={handleSubmit}>
+        <label>Category</label>
+        <input
+          type="text"
+          value={content}
+          onChange={(evt) => setContent(evt.target.value)}
+          required
+        />
+        <button type="submit">ADD Category</button>
+      </form>
+
     </>
+    
+
   );
 }

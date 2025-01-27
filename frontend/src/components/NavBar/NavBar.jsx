@@ -17,7 +17,7 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp;
       {user ? (
         <>
-          <NavLink to="/posts" end>
+          <NavLink to="/foods" end>
             Food List
           </NavLink>
           &nbsp; | &nbsp;
