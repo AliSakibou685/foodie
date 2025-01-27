@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import * as postService from '../../services/postService';
+import * as postService from '../../services/foodService';
 import './FoodListPage.css';
-import PostItem from '../../components/PostItem/PostItem';
+import FoodItem from '../../components/FoodItem/FoodItem';
 
 export default function FoodListPage() {
-  const [posts, setPosts] = useState([]);
+  const [foods, setFoods] = useState([]);
 
   useEffect(() => {
     async function fetchFoods() {
@@ -14,12 +14,12 @@ export default function FoodListPage() {
     fetchPosts();
   }, []);
 
-  const postItems = posts.map((p) => <PostItem key={p._id} post={p} />);
+  const postItems = foods.map((f) => <FoodItem key={p._id} food={p} />);
 
   return (
     <>
       <h1>Food List</h1>
-      <section className="post-item-container">{postItems}</section>
+      <section className="food-item-container">{foodItems}</section>
     </>
   );
 }
