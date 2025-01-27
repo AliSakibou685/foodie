@@ -29,7 +29,15 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/foods" element={<FoodListPage />} />
-            <Route path="/foods/new" element={<NewFoodPage categories={categories} />} />
+            <Route
+              path="/foods/new"
+              element={
+                <NewFoodPage
+                  categories={categories}
+                  setCategories={setCategories}
+                />
+              }
+            />
           </Routes>
         ) : (
           <Routes>

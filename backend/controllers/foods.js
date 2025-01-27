@@ -7,7 +7,7 @@ module.exports = {
 
 // GET /api/foods (INDEX action)
 async function index(req, res) {
-    const foods = await Food.find({}).populate('foods');
+    const foods = await Food.find({}).populate('category');
     res.json(foods);
 }
 

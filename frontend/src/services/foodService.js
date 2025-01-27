@@ -6,6 +6,6 @@ export async function index() {
   return sendRequest(BASE_URL);
 }
 
-export async function create(content) {
-  return sendRequest(BASE_URL, 'Food', { content });
+export async function create(formData) {
+  return sendRequest(BASE_URL, 'POST', formData);
 }

@@ -8,7 +8,7 @@ module.exports = {
 
 // GET /api/categories (INDEX action)
 async function index(req, res) {
-    const categories = await Category.find({})
+    const categories = await Category.find({}).sort('name')
     res.json(categories);
 }
 
@@ -16,8 +16,9 @@ async function index(req, res) {
 async function create(req, res) {
     try {
       req.body.user = req.user._id;
-      const category = await Category.create(req.body);
-      res.json(category);
+      await Category.create(req.body);
+      const categories = await Category.find({}).sort('name');
+      res.json(categories);
     } catch (err) {
       console.log(err);
       res.status(400).json({ message: 'Create Category Failed' });

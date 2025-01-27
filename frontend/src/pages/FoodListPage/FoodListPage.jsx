@@ -14,7 +14,7 @@ export default function FoodListPage() {
     fetchFoods();
   }, []);
 
-  const foodItems = foods.map((f) => <FoodItem key={p._id} food={f} />);
+  const foodItems = foods.map((f) => <FoodItem key={f._id} food={f} />);
 
   return (
     <>
