@@ -4,7 +4,7 @@ import { getUser } from '../../services/authService';
 import './App.css';
 import HomePage from '../HomePage/HomePage';
 import FoodListPage from '../FoodListPage/FoodListPage';
-import NewPostPage from '../NewPostPage/NewPostPage';
+import NewFoodPage from '../NewFoodPage/NewFoodPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LogInPage';
 import NavBar from '../../components/NavBar/NavBar';
@@ -20,7 +20,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/foods" element={<FoodListPage />} />
-            <Route path="/posts/new" element={<NewPostPage />} />
+            <Route path="/foods/new" element={<NewFoodPage />} />
           </Routes>
         ) : (
           <Routes>

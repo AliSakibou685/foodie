@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import * as postService from '../../services/foodService';
+import * as foodService from '../../services/foodService';
 import './FoodListPage.css';
 import FoodItem from '../../components/FoodItem/FoodItem';
 
@@ -8,13 +8,13 @@ export default function FoodListPage() {
 
   useEffect(() => {
     async function fetchFoods() {
-      const posts = await postService.index();
+      const foods = await foodService.index();
       setFoods(foods);
     }
-    fetchPosts();
+    fetchFoods();
   }, []);
 
-  const postItems = foods.map((f) => <FoodItem key={p._id} food={p} />);
+  const foodItems = foods.map((f) => <FoodItem key={p._id} food={f} />);
 
   return (
     <>

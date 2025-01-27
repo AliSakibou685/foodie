@@ -18,10 +18,10 @@ export default function NavBar({ user, setUser }) {
       {user ? (
         <>
           <NavLink to="/posts" end>
-            Post List
+            Food List
           </NavLink>
           &nbsp; | &nbsp;
-          <NavLink to="/posts/new">New Post</NavLink>
+          <NavLink to="/foods/new">New Food</NavLink>
           &nbsp; | &nbsp;
           <Link to="" onClick={handleLogOut}>
             Log Out

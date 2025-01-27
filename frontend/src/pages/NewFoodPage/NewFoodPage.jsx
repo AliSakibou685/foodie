@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import * as postService from '../../services/foodService';
+import * as foodService from '../../services/foodService';
 
-export default function NewPostPage() {
+export default function NewFoodPage() {
   const [content, setContent] = useState('');
 
   const navigate = useNavigate();
@@ -10,8 +10,8 @@ export default function NewPostPage() {
   async function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      const post = await postService.create(content);
-      navigate('/posts');
+      const food = await foodService.create(content);
+      navigate('/foods');
     } catch (err) {
       console.log(err);
     }
@@ -19,16 +19,16 @@ export default function NewPostPage() {
 
   return (
     <>
-      <h2>New Post</h2>
+      <h2>New Food</h2>
       <form autoComplete="off" onSubmit={handleSubmit}>
-        <label>Post Content</label>
+        <label>Food List</label>
         <input
           type="text"
           value={content}
           onChange={(evt) => setContent(evt.target.value)}
           required
         />
-        <button type="submit">ADD POST</button>
+        <button type="submit">ADD Food</button>
       </form>
     </>
   );
