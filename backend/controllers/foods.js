@@ -1,8 +1,15 @@
+
+const food = require('../models/food');
 const Food = require('../models/food');
+
+const express = require('express');
+const router = express.Router();
 
 module.exports = {
     create,
-    index
+    index,
+    delete: deleteFood
+    
 };
 
 // GET /api/foods (INDEX action)
@@ -18,8 +25,20 @@ async function create(req, res) {
       const food = await Food.create(req.body);
       res.json(food);
     } catch (err) {
-      console.log(err);
       res.status(400).json({ message: 'Create Food Failed' });
     }
   }
 
+// DELETE /api/foods/:foodId (DELETE action)
+async function deleteFood(req, res) {
+  try {
+    const project = await Food.findByIdAndDelete(req.params.id);
+    if (!food) {
+      return res.status(404).json({ message: 'Food not found' });
+    }
+    res.json({ message: 'Food deleted successfully' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Delete Project Failed' });
+  }
+}

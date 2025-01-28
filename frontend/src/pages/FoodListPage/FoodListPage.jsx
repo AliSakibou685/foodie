@@ -14,12 +14,16 @@ export default function FoodListPage() {
     fetchFoods();
   }, []);
 
-  const foodItems = foods.map((f) => <FoodItem key={f._id} food={f} />);
-
+    const foodItems = foods.map((f) => (
+      <FoodItem key={f._id} food={f} handleDelete={handleDelete} />
+    ));
+  
   return (
     <>
       <h1>Food List</h1>
       <section className="food-item-container">{foodItems}</section>
+      
     </>
   );
 }
+

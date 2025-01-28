@@ -9,3 +9,15 @@ export async function index() {
 export async function create(formData) {
   return sendRequest(BASE_URL, 'POST', formData);
 }
+
+const deleteFood = async (foodId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${foodId}`, {
+      method: 'DELETE',
+    });
+    return res.json();
+  } catch (err) {
+    console.log(err);
+  }
+};
+

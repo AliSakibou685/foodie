@@ -20,7 +20,7 @@ async function create(req, res) {
       const categories = await Category.find({}).sort('name');
       res.json(categories);
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       res.status(400).json({ message: 'Create Category Failed' });
     }
   }
