@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import * as foodService from '../../services/foodService';
 import * as categoryService from '../../services/categoryService';
@@ -7,11 +7,15 @@ export default function NewFoodPage({ categories, setCategories }) {
   const [formData, setFormData] = useState({
     name: '',
     expires: '',
-    category: '',
+    category: categories[0]?._id
   });
   const [errorMsg, setErrorMsg] = useState('');
   const [isAddingCat, setIsAddingCat] = useState(false);
   const [catName, setCatName] = useState('');
+
+  useEffect(() => {
+    if (categories.length) setFormData({...formData, category: categories[0]._id})
+  }, [categories])
 
   const navigate = useNavigate();
 

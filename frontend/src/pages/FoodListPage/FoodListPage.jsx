@@ -14,16 +14,26 @@ export default function FoodListPage() {
     fetchFoods();
   }, []);
 
-    const foodItems = foods.map((f) => (
-      <FoodItem key={f._id} food={f} handleDelete={handleDelete} />
-    ));
+  const foodItems = foods.map((f) => (
+    <FoodItem key={f._id} food={f} handleDelete={handleDelete} />
+  ));
+
+  async function handleDelete(foodId) {
+    try {
+      await foodService.deleteFood(foodId);
+      const updatedFoods = foods.filter((f) => f._id !== foodId);
+      setFoods(updatedFoods);
+    } catch (err) {
+        console.log(err);
+    }
+
   
+  }
+
   return (
     <>
       <h1>Food List</h1>
       <section className="food-item-container">{foodItems}</section>
-      
     </>
   );
 }
-
