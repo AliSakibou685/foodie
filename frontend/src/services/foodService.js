@@ -14,8 +14,7 @@ export async function deleteFood(foodId) {
   return sendRequest(BASE_URL + "/" + foodId, "DELETE");
 };
 
-export async function updateFood(id, formData) {
-  console.log('Service Layer - Payload:', formData);
+export async function update(id, formData) {
   return sendRequest(`${BASE_URL}/${id}`, 'PUT', formData);
 }
 

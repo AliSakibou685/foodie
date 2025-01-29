@@ -12,5 +12,7 @@ router.get('/', foodsCtrl.index);
 router.delete('/:foodId', foodsCtrl.delete);
 //GET /api/foods/:foodId
 router.get('/:foodId', foodsCtrl.getOne);
+//PUT /api/foods/:foodId
+router.put('/:foodId', foodsCtrl.update)
 
 module.exports = router;

@@ -20,7 +20,6 @@ export default function App() {
       setCategories(categories);
     }
     fetchCategories();
-   
   }, []);
   return (
     <main className="App">
@@ -30,7 +29,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/foods" element={<FoodListPage />} />
-            <Route path="/foods/:id" element={<FoodDetailPage />} />
+            <Route path="/foods/:id" element={<FoodDetailPage categories={categories} />} />
             <Route
               path="/foods/new"
               element={
