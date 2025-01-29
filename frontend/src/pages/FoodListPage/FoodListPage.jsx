@@ -14,21 +14,7 @@ export default function FoodListPage() {
     fetchFoods();
   }, []);
 
-  const foodItems = foods.map((f) => (
-    <FoodItem key={f._id} food={f} handleDelete={handleDelete} />
-  ));
-
-  async function handleDelete(foodId) {
-    try {
-      await foodService.deleteFood(foodId);
-      const updatedFoods = foods.filter((f) => f._id !== foodId);
-      setFoods(updatedFoods);
-    } catch (err) {
-        console.log(err);
-    }
-
-  
-  }
+  const foodItems = foods.map((f) => <FoodItem key={f._id} food={f} />);
 
   return (
     <>

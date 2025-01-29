@@ -5,6 +5,7 @@ import * as categoryService from '../../services/categoryService';
 import './App.css';
 import HomePage from '../HomePage/HomePage';
 import FoodListPage from '../FoodListPage/FoodListPage';
+import FoodDetailPage from '../FoodDetailPage/FoodDetailPage';
 import NewFoodPage from '../NewFoodPage/NewFoodPage';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LogInPage';
@@ -29,6 +30,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/foods" element={<FoodListPage />} />
+            <Route path="/foods/:id" element={<FoodDetailPage />} />
             <Route
               path="/foods/new"
               element={

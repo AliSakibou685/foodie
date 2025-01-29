@@ -1,13 +1,10 @@
-
-const food = require('../models/food');
 const Food = require('../models/food');
 
-const express = require('express');
-const router = express.Router();
 
 module.exports = {
     create,
     index,
+    getOne,
     delete: deleteFood
     
 };
@@ -31,6 +28,7 @@ async function create(req, res) {
     }
   }
 
+
 // DELETE /api/foods/:foodId (DELETE action)
 async function deleteFood(req, res) {
   try {
@@ -41,3 +39,15 @@ async function deleteFood(req, res) {
     res.status(500).json({ message: 'Delete Food Failed' });
   }
 }
+
+async function getOne(req, res) {
+  try {
+    const food = await Food.findById(req.params.foodId);
+    res.json(food);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'No Food Found' });
+  }
+}
+
+

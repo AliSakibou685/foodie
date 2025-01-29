@@ -4,11 +4,13 @@ const foodsCtrl = require('../controllers/foods');
 
 // All paths start with '/api/foods'
 
-// POST /api/posts
+//POST /api/foods
 router.post('/', foodsCtrl.create);
-// GET /api/posts
+//GET /api/foods
 router.get('/', foodsCtrl.index);
-//Delete /api/foods/:foodId
+//DELETE /api/foods/:foodId
 router.delete('/:foodId', foodsCtrl.delete);
+//GET /api/foods/:foodId
+router.get('/:foodId', foodsCtrl.getOne);
 
 module.exports = router;
