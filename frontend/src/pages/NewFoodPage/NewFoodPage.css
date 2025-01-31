@@ -1,0 +1,15 @@
+.new-food-page {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #6a4141;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+  font-size: 2rem;
+  color: #f3f6f9;
+  margin-bottom: 20px;
+  text-align: center;
+}

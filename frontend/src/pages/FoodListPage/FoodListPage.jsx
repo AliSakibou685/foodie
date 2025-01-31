@@ -18,7 +18,8 @@ export default function FoodListPage() {
 
   return (
     <>
-      <h1>Food List</h1>
+
+      <h1 className='page-title'>Food List</h1>
       <section className="food-item-container">{foodItems}</section>
     </>
   );

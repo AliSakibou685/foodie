@@ -1,0 +1,22 @@
+.food-item {
+  border: 0.5vmin dashed rgb(226, 219, 233);
+  padding: 2vmin;
+  border-radius: 0.5vmin;
+  color: #fffcfc;
+}
+
+.page-title {
+  font-size: 2rem;
+  color: #3877b6;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.food-detail-page {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #6a4141;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

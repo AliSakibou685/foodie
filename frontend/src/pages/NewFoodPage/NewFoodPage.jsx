@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import * as foodService from '../../services/foodService';
 import * as categoryService from '../../services/categoryService';
-
+import './NewFoodPage.css';
 export default function NewFoodPage({ categories, setCategories }) {
   const [formData, setFormData] = useState({
     name: '',
@@ -51,8 +51,8 @@ export default function NewFoodPage({ categories, setCategories }) {
   }
 
   return (
-    <>
-      <h2>New Food</h2>
+    <div className='new-food-page'>
+      <h2 className='page-title'>New Food</h2>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <label>Food Name</label>
         <input
@@ -95,6 +95,6 @@ export default function NewFoodPage({ categories, setCategories }) {
         <button type="submit">ADD Food</button>
       </form>
       <p className="error-message">&nbsp;{errorMsg}</p>
-    </>
+    </div>
   );
 }

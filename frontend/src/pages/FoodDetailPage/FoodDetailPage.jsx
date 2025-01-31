@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import * as foodService from '../../services/foodService';
-
+import './FoodDetailPage.css';
 export default function FoodDetailPage({categories}) {
   const [food, setFood] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -55,8 +55,8 @@ export default function FoodDetailPage({categories}) {
   if (!food) return null;
   console.log(food)
   return (
-    <>
-      <h1>Food Details </h1>
+    <div className='food-detail-page'>
+      <h1 className='page-title'>Food Details </h1>
       {isEditing ? (
         <form autoComplete="off" onSubmit={handleSubmit}>
           <input
@@ -95,6 +95,6 @@ export default function FoodDetailPage({categories}) {
           <button onClick={handleEditClick}>✏️</button>
         </article>
       )}
-    </>
+    </div>
   );
 }
